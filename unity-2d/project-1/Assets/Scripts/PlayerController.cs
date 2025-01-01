@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float jumpForce;
+    [SerializeField] private Rigidbody2D rb2d;
+    private bool isGrounded;
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hello Unity!");
-
-        // завд1
-        Debug.Log("Serhii");
+        isGrounded = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
+        if (Input.GetMouseButtonDown(0) && isGrounded) {
+            rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isGrounded = false;
         }
+    }
 
-        // завд2
-        Debug.Log("Edward Elric");
-
-        // завд3
-        if (Input.GetMouseButtonDown(1)) {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 5f * 2, ForceMode2D.Impulse);
-        }
+    private void OnCollisionEnter2D(Collision2D collision) {
+        isGrounded = true;
     }
 }

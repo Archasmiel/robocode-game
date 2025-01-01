@@ -1,12 +1,32 @@
+Перші скрипти. Рух персонажу
+
+Пригадати, що таке Sprite Sheet та як він використовується. 
+Навчитись створювати скрипти мовою програмування C#. 
+Вивчити структуру базового коду Unity (класи, методи, поля). 
+Навчитись користуватись помічником "IntelliCode". 
+Створити базове керування персонажем.
+
+Діти мають знати: 
+Що таке Spreet Sheet. 
+Розрізняти візуально де в коді клас, метод і властивість. 
+Як працює Update та Start. 
+
+Вміти: 
+Створювати C# скрипт. 
+Реалізовувати базове керування персонажем за допомогою методів Input.GetAxisRaw().
+Виводити напис в консоль.
+
+
+
 1) розповісти про spritesheet
 2) розділити spritesheet з блоками 
-	(mode=Multiple, pixperunit=32, filter=Point, format=RGBA32 -> Apply)
+	- mode=Multiple, pixel_per_unit=32, filter=Point, format=RGBA32 -> Apply
 3) зробити підлогу для рівня 
-	(зробити з двох заготовок, всередині об'єкта Level, перетягувати через Ctrl)
-	(дублювати через Ctrl+D)
+	- зробити з двох заготовок, всередині об'єкта Level, перетягувати через Ctrl
+	- дублювати через Ctrl+D
 4) додати персонажа через картинку
-	(mode=Single, pixperunit=32, filter=Point, format=RGBA32 -> Apply)
-	(додати йому Rigidbody2D та CircleCollider2D)
+	- mode=Single, pixperunit=32, filter=Point, format=RGBA32 -> Apply
+	- додати йому Rigidbody2D та CircleCollider2D
 5) створити C# скрипт PlayerController та почати редагувати
 6) описати за частини програми
 	- клас, чому він public, ": MonoBehaviour"
