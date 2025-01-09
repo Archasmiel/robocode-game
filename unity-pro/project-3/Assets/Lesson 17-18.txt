@@ -21,7 +21,8 @@ Robo-Stars. Створення проєкту. URP. New Input System.
 Використовувати DOTween для налаштування анімаційних переходів у UI інтерфейсі.
 
 
-Lesson 17 (1-24) [1-16]
+
+Lesson 17 (1-24) [1-15]
 Lesson 18 (25-...) [16-...]
 
 1) Створити проєкт з заготвки - 3D Sample Scene (URP)
@@ -73,10 +74,87 @@ Lesson 18 (25-...) [16-...]
     перший буде моделькою, другий архівом
     модельку закидаємо в папку в юніті (з назвою героя)
     з архіву беремо лише папку textures і вставляємо в папку в юніті (з назвою героя)
-15) у файлу модельки .fbx міняємо параметр в Rig 
-    Generic -> Humanoid 
-    жмемо Apply
-16) у файлу модельки .fbx міняємо параметри в Animation
-    Loop Time - ставимо галочку
-    Root Transform Rotation -> Bake Into Pose - ставимо галочку
-    Root Transform Position (Y) -> Bake Into Pose - ставимо галочку
+15) у файлу модельки .fbx 
+    міняємо параметр в Rig
+    Generic -> Humanoid -> Apply
+    міняємо параметри в Animation
+    Loop Time ставимо галочку
+    Root Transform Rotation -> Bake Into Pose ставимо галочку
+    Root Transform Position (Y) -> Bake Into Pose ставимо галочку
+
+16) качаємо модельки Run + Walk і так само налаштовуємо як у 15)
+17) створюємо папку ActionMaps 
+    створюємо файл Input Actions з назвою PlayerInput
+18) є всього три зони (зліва, посередині та справа) у PlayerInput
+    зліва робимо нову карту CharacterControls 
+    (!!! перевіряйте назву, бо в коді буде скрипт з такою назвою)
+    посередині додаємо Actions як на слайдах
+    (!!! в нових версіях перейменували Composite, тепер він Add Up/Down... Composite)
+19) додати ще групу, але для стрілок
+20) додати дію Run (зелена)(actionType=Button, bind=LeftShift)
+21) додати всі дії з слайдів
+    та натиснути Save Asset !!!
+22) вибираємо наш ассет з юніті, шукаємо в інспекторі
+    Generate C# Class -> Apply
+23) на сцені робимо пустий об'єкт Player
+    позиція - 0,0,0
+    закидуємо в нього всередину модельку AAAAA@Idle (мали скачати у форматі FBX For Unity)
+    розпаковуємо, перейменовуємо в Render (це буде лише картинка-рендер персонажа)
+    до Render додаємо CharacterController
+    якщо є Animator Controller, додаємо, якщо ні створюємо CharacterAnimatorController
+    засовуємо до аніматора в Render
+24) додаємо AAAA@Idle до аніматора
+    додаємо параметри bool - isWalk та isRun
+25) додаємо Sub Machine State, назва Movement (перейменовування в інспекторі)
+26) додаємо переходи як на слайді і їх налаштування
+27) створюємо скрипт PlayerController, вішаємо на Render
+    пишемо код (увага на назву нашого Action Input'a)
+28) додаємо на Render CharacterController, налаштовуємо його колайдер
+
+    дивіться на анімації, бо іноді буває, що вона йде на сайті прямо а в юніті вбік
+    в Root Transform Rotation міняємо "Based on..." на "Original"
+
+
+
+(завд1) додати на персонажа матеріал (якщо все зробили як у гайді, то він вже є)
+    якщо немає текстури подивіться момент 14)
+(завд2) додати анімацію присідання для двох дій - коли стоїть та коли йде
+(завд3) зробити переходи між анімаціями без і з присядом
+(завд4) зробити зміну колайдера при присяді
+
+
+
+швидкість на жаль в даному вводі не дається постійно, 
+не потрібно множити вектор currentMovement, треба зробити метод що видає новий вектор
+
+private Vector3 SpeedControl(Vector3 move) {
+    float speed = normalSpeed;
+    if (isRun) {
+        speed = runSpeed;
+    }
+    else if (isCrouch) {
+        speed = crouchSpeed;
+    }
+
+    return new Vector3(move.x * speed, move.y, move.z * speed);
+    // не множимо у
+}
+
+
+
+зробити колайдер краще присяд через два стани - поточний і старий
+
+private void CrouchCollider() {
+    if (prevCrouch && !isCrouch) {
+        controller.center = CENTER_NORMAL;
+        controller.height = HEIGHT_NORMAL;
+    }
+    else 
+    if (!prevCrouch && isCrouch) {
+        controller.center = CENTER_CROUCH;
+        controller.height = HEIGHT_CROUCH;
+    }
+}
+
+
+
