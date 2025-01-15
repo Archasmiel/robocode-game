@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 280610091979477947}
   - component: {fileID: 602584815191527754}
   - component: {fileID: 7219174397174337464}
+  - component: {fileID: 3099464999570373577}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Obstacle
@@ -127,3 +128,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+--- !u!114 &3099464999570373577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7808425997716813501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ee5e79a4c88a642a64f8eb69efbe73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 10

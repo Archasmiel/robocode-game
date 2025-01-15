@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5588935154173290333}
   - component: {fileID: 714507982181447427}
   - component: {fileID: 5886496236319197063}
+  - component: {fileID: 8371933631721729860}
   m_Layer: 0
   m_Name: Jewel
   m_TagString: Jewel
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1622056599, guid: 956e31bfbf75525458ee48805a71b273, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,3 +138,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+--- !u!114 &8371933631721729860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274431084315822306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ee5e79a4c88a642a64f8eb69efbe73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 10
