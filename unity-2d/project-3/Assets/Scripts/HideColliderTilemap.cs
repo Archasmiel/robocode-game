@@ -7,4 +7,6 @@ public class HideColliderTilemap : MonoBehaviour {
     void Start() {
         GetComponent<TilemapRenderer>().enabled = false;
     }
+
+
 }

@@ -13,7 +13,7 @@ public class CameraFollow : MonoBehaviour
         startPos = transform.position;
     }
 
-    public void Update() {
+    private void Update() {
         if (target != null) {
             targetPos = new Vector3(target.position.x, target.position.y,
                 transform.position.z);
